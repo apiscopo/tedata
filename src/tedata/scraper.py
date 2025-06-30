@@ -259,6 +259,7 @@ class TE_Scraper(Generic_Webdriver, SharedWebDriverState):
         if not hasattr(self, "date_spans"):
             self.determine_date_span()
         if date_span in self.date_spans.keys():
+            logger.info(f"self.date_spans.keys(): {self.date_spans.keys()}")
             if self.click_button(self.date_spans[date_span]):
                 logger.info(f"Click button")
                 self.date_span = date_span
