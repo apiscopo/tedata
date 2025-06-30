@@ -260,6 +260,7 @@ class TE_Scraper(Generic_Webdriver, SharedWebDriverState):
             self.determine_date_span()
         if date_span in self.date_spans.keys():
             if self.click_button(self.date_spans[date_span]):
+                logger.info(f"Click button")
                 self.date_span = date_span
                 logger.info(f"Date span set to: {date_span}")
                 self.update_chart()
