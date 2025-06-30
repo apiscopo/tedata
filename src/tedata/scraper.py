@@ -277,7 +277,8 @@ class TE_Scraper(Generic_Webdriver, SharedWebDriverState):
         current date as the end date."""
 
         self.custom_date_span_js(start_date="1850-01-01", end_date=datetime.date.today().strftime("%Y-%m-%d"))
-        self.date_span = "MAX"
+        # self.date_span = "MAX"
+        self.date_span = "10Y"
 
     def update_date_span(self, update_chart: bool = False):
         """Update the date span after clicking a button. This will check the page source and update the date span attribute.
