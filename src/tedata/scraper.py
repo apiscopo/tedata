@@ -259,7 +259,6 @@ class TE_Scraper(Generic_Webdriver, SharedWebDriverState):
         if not hasattr(self, "date_spans"):
             self.determine_date_span()
         if date_span in self.date_spans.keys():
-            logger.info(f"Yes date_span in self.date_spans.keys(): {self.date_spans.keys()}")
             if self.click_button(self.date_spans[date_span]):
                 self.date_span = date_span
                 logger.info(f"Date span set to: {date_span}")
@@ -442,7 +441,8 @@ class TE_Scraper(Generic_Webdriver, SharedWebDriverState):
             self.set_chartType_js(use_chart_type) ## Use a certain chart type for the extraction of the series data. May fail with certain types of charts.
 
         if set_max_datespan and self.date_span != "MAX":
-            self.set_date_span("MAX")
+            # self.set_date_span("MAX")
+            self.set_date_span("10Y")
         logger.info(f"Series path extraction method: Extracting series data from chart soup.") 
         logger.info(f"Date span: {self.date_span}. Chart type: {self.chart_type}, URL: {self.last_url}.")
     
@@ -1027,7 +1027,8 @@ class TE_Scraper(Generic_Webdriver, SharedWebDriverState):
         if update_chart:
             self.update_chart()
         if set_global_y_axis and self.date_span != "MAX":
-            self.set_date_span("MAX")
+            # self.set_date_span("MAX")
+            self.set_date_span("10Y")
 
         ## First get the pixel values of the max and min for both x and y axis.
         self.axis_limits = self.extract_axis_limits()
