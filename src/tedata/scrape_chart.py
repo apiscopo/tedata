@@ -70,6 +70,7 @@ def scrape_chart(url: str = None,
     **Returns**
     - TE_Scraper object with the scraped data or None if an error occurs.
     """
+    logger.info(f"In scrape chart function.")
 
     if start_date is None: 
         start_date = "1850-01-01"
