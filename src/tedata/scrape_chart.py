@@ -212,7 +212,6 @@ def scrape_chart(url: str = None,
         
     elif method == "highcharts_api":
         try:
-            logger.info(f"Setting max date span.")
             # Set max date span for the series.
             sel.set_max_date_span_viaCalendar()
             time.sleep(1)

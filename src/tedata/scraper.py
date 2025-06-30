@@ -260,7 +260,6 @@ class TE_Scraper(Generic_Webdriver, SharedWebDriverState):
         if not hasattr(self, "date_spans"):
             self.determine_date_span()
         if date_span in self.date_spans.keys():
-            logger.info(f"self.date_spans.keys(): {self.date_spans.keys()}")
             if self.click_button(self.date_spans[date_span]):
                 logger.info(f"Click button")
                 self.date_span = date_span
@@ -280,8 +279,7 @@ class TE_Scraper(Generic_Webdriver, SharedWebDriverState):
         current date as the end date."""
 
         self.custom_date_span_js(start_date="1850-01-01", end_date=datetime.date.today().strftime("%Y-%m-%d"))
-        # self.date_span = "MAX"
-        self.date_span = "10Y"
+        self.date_span = "MAX"
 
     def update_date_span(self, update_chart: bool = False):
         """Update the date span after clicking a button. This will check the page source and update the date span attribute.
@@ -444,8 +442,7 @@ class TE_Scraper(Generic_Webdriver, SharedWebDriverState):
             self.set_chartType_js(use_chart_type) ## Use a certain chart type for the extraction of the series data. May fail with certain types of charts.
 
         if set_max_datespan and self.date_span != "MAX":
-            # self.set_date_span("MAX")
-            self.set_date_span("10Y")
+            self.set_date_span("MAX")
         logger.info(f"Series path extraction method: Extracting series data from chart soup.") 
         logger.info(f"Date span: {self.date_span}. Chart type: {self.chart_type}, URL: {self.last_url}.")
     
