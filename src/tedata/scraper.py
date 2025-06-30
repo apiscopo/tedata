@@ -233,7 +233,8 @@ class TE_Scraper(Generic_Webdriver, SharedWebDriverState):
             else:
                 # No button has been slected already in this case.
                 shortest_span = list(self.date_spans.keys())[0]
-                self.set_date_span(shortest_span)
+                longest_span = list(self.date_spans.keys())[-2]
+                self.set_date_span(longest_span)
                 return shortest_span
 
     def update_chart(self):
